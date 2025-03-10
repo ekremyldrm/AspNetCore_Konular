@@ -1,0 +1,43 @@
+﻿
+<fieldset>
+
+	<form method="post" asp-action="Kuki">
+
+		@* name attribute form içerisinde gönderilen inputların deperilerini yakalamak için kullanılır *@
+
+		<!--hidden inputlarda gizli veri saklamak için kullanılır....kullanıcıya input gösterilmez...-->
+
+		<input type="text" name="adi" value="bt" />
+		<input type="text" name="soyadi" value="akademi" />
+
+		<legend>client Side cookie</legend>
+
+		@if (this.Context.Request.Cookies["syc"] != null)
+		{
+			<h1 id="hSonucServer">@this.Context.Request.Cookies["syc"]</h1>
+		}
+
+		<input type="submit" value="Arttır" id="btnArrtirServer" />
+	</form>
+</fieldset>
+
+
+<!-- asp.net core statemanagements
+
+
+https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-9.0
+
+
+
+client side state management
+	cookie (çerez) .. veriler server yerine client'a saklanır. server'dan client (tarayıcıya) çerezler yazılır...
+
+
+
+server side state management
+	session (oturum)
+
+	//session => oturum demektir. server side tarafları client'a ait bilgileri tutmak için kulalnılır. CLienta ait bilgiler default 20 dakika süre ile severda saklanır
+
+		// aspnet core'da session yapısı default gelmemekte. proye dahil etmek için program.cs dosyasına gidip gerekli session konfigurasyonunu yapmanız gerekiyor...
+}

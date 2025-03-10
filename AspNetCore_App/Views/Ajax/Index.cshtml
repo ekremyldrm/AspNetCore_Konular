@@ -1,0 +1,98 @@
+﻿Ajax nedir ?
+
+ Asynchronous JavaScript And XML.
+
+ Clienttan server'a request yapmak için kullanılır.....Ajax javascript ile XMLHttpRequest nesnesi üzerinden servera iletişim yapmayı sağlar... ajax sayfayı refresh yapmadan request yapmasıdır. Normal httprequestlerde sayfa refresh yapılır ve buda büyük web sayfalarında performans kaybına neden olur...
+
+
+ Ajax ile yapılan requestlerde sayfa tamamen refresh olmaz. response javascript ile yakalanarak sayfasnın sadece belirli bir kısmı güncellenir. normal requestler ise sayfanın tamamı güncellenir...
+
+
+<form asp-action="Detay">
+
+
+	<!--
+		javascript ile değerler id ile yakalanır..
+		name ile serverdan
+		id ile clienttan
+	-->
+	<input type="text" name="Adi" id="Adi" />
+
+	<br />
+
+	<input id="btnSearch" type="button" value="Servera gönder...." />
+
+	@*
+
+	ajax requestlerinde submit button kullanırsanız sayfa refresh yapılır. bu durum aksi beliritilene kadar böyle çalışır...
+
+	button olduğunda form submit edilmez..
+
+	*@
+
+</form>
+
+
+<h1 id="Result"></h1>
+
+json yakalayalım...
+<div>
+	<h1 id="hadi"></h1>
+	<h1 id="hsayi"></h1>
+</div>
+
+@section Scripts {
+
+
+	<script>
+		$(document).ready(function () {
+
+
+			$("#btnSearch").click(function () {
+
+				var n = $("#Adi").val();
+				var parameter = new FormData();
+				parameter.append("name", n);
+
+
+				var req = new XMLHttpRequest();
+				req.open("POST", "/Ajax/Search");
+
+				// onreadystatechange =>requesti dinler. değişlik oldukça tetiklenir...
+				// response yakalamamızı sağlar....
+				req.onreadystatechange = function () {
+
+					// response gelmiştir
+					if (req.readyState == 4) {
+						// alert("işlem başarılı");
+						$("#Result").text(req.responseText);
+
+						var jsonData = JSON.parse(req.responseText); // json dataya dönüştür...
+
+
+						$("#hadi").text(jsonData.arananDeger);
+						$("#hsayi").text(jsonData.randomDeger);
+					}
+
+
+				}
+
+				req.send(parameter); // requesti servera gönder....
+
+
+			});
+
+
+			$("form").submit(function (e) {
+				return false;
+			});
+
+
+
+		});
+
+	</script>
+
+}
+
+

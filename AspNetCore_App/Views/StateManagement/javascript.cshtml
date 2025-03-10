@@ -1,0 +1,34 @@
+﻿@model int
+
+<!--
+input type="button". sayfayı clientte tutarak olay (function) tetiklemek için kullnılır
+input type="submit". saydayı severa gönderrek olay (action) tetiklmek için kullanılır
+
+-->
+
+<fieldset>
+	<legend>Client Side</legend>
+	<h1 id="hSonucClient"></h1>
+	<input type="button" value="Arttır" id="btnArrtirClient" />
+</fieldset>
+<br />
+<br />
+
+@section Scripts {
+
+	<script>
+
+		var sayac = 0;
+
+		// jquery
+		$(document).ready(function () {
+
+			$("#btnArrtirClient").click(function () {
+				sayac++;
+				$("#hSonucClient").text(sayac);
+			});
+		});
+
+	</script>
+
+}
