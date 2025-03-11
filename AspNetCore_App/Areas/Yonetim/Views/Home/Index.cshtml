@@ -1,0 +1,19 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Ben yönetim areasının home controllerinin index actionı tarafından render edildimmmm</h1>
+
+
+aşağıdan geri dönebilirsiniz;
+<br />
+
+<!--tag helpers-->
+
+<a asp-area="" asp-action="index" asp-controller="home">Geri Dön GEri Dön</a>
+<br />
+
+<!--Html Helper-->
+@Html.ActionLink("Geri Dön", "Index", "Home", new { area = "" }, null)

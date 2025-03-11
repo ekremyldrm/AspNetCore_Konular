@@ -1,0 +1,45 @@
+﻿
+
+<!--
+data-ajax="true" çalışabilmesi için jquery.unobtrusive-ajax.js kütüphanesinin projeye dahil edilmesi gerelir...
+
+data-ajax-success attribute bir javascript fonksiyonu gösterilir. bu fonksiyon sucess alındğında çalışacka kodu ifade eder...
+
+submit button form'da data-ajax="true" attribute kullanıldığı için sayfayı refresh yapmaz...
+
+
+-->
+
+<form asp-controller="Ajax" asp-action="OgrList" 
+data-ajax="true"
+	  data-ajax-success="OnSuccess">
+	<input type="submit" value="Getir" />
+</form>
+
+
+<ul id="dersler" class="list-group">
+	@* <li class="list-group-item"></li> *@
+</ul>
+
+
+@section Scripts{
+	<script src="~/js/ajax/jquery.unobtrusive-ajax.min.js"></script>
+	<script>
+
+		function OnSuccess(resp){
+
+
+			$("#dersler").html("");
+
+			for (var i = 0; i < resp.length; i++) {
+
+				// jquery html element oluşturma..
+				$("<li/>", {
+					"class": "list-group-item",
+					text: resp[i].dersAdi
+				}).appendTo("#dersler");
+
+			}
+		}
+		</script>
+}

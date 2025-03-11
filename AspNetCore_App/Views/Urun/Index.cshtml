@@ -1,0 +1,42 @@
+﻿@* namespaceini viewImports dosyasına ekliyoruz. *@
+@model ProductIndexViewModel
+
+
+<h1>
+	Vitrin İlanı
+</h1>
+<hr />
+<div class="row">
+	@foreach (var item in Model.Vitrins)
+	{
+		<div class="col-lg-4">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="~/img/img.svg" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title"> @item.ProductName </h5>
+					<p class="card-text"> @item.UnitPrice ₺ - @item.UnitsInStock adet </p>
+					<a  asp-action="Detail" asp-controller="Urun" asp-route-id="@item.ProductId"  class="btn btn-primary">İncele</a>
+				</div>
+			</div>
+		</div>
+	}
+</div>
+<h1>
+	Stoğu Azalanlar
+</h1>
+<hr />
+<div class="row">
+	@foreach (var item in Model.EnCokSatans)
+	{
+		<div class="col-lg-4">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="~/img/img.svg" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title"> @item.ProductName </h5>
+					<p class="card-text"> @item.UnitPrice ₺ - @item.UnitsInStock adet </p>
+					<a asp-action="Detail" asp-controller="Urun" asp-route-id="@item.ProductId" class="btn btn-primary">İncele</a>
+				</div>
+			</div>
+		</div>
+	}
+</div>

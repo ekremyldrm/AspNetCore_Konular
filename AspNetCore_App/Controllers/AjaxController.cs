@@ -28,5 +28,26 @@ namespace AspNetCore_App.Controllers
 			return Json(rsp);
 
 		}
+
+		public IActionResult JqueryIndex()
+		{
+			return View();
+		}
+
+		public IActionResult MyAjaxHelper()
+		{
+			return View();
+		}
+
+		public IActionResult OgrList()
+		{
+			var a = new { DersAdi = "C#", Kredi = 4 };
+			var b = new { DersAdi = "Sql Server", Kredi = 4 };
+			var c = new { DersAdi = "Java", Kredi = 2 };
+
+			var list = new[] { a, b, c }.ToList();
+			return Json(list);
+
+		}
 	}
 }

@@ -9,17 +9,59 @@
 
 
 <h1>State Management</h1>
-<a asp-controller="StateManagement" asp-action="javascript">Clienttan arttır Javascrtipt</a>
+<ul class="list-group">
+	<li class="list-group-item">
+		<a asp-controller="StateManagement" asp-action="javascript">Clienttan arttır Javascrtipt</a>
+	</li>
+	<li class="list-group-item">
+		<a asp-controller="StateManagement" asp-action="oturum">Statemanagement Session</a>
+	</li>
+	<li class="list-group-item">
+		<a asp-controller="StateManagement" asp-action="Kuki">Statemanagement Cookie</a>
+	</li>
 
-<br />
-<a asp-controller="StateManagement" asp-action="oturum">Statemanagement Session</a>
-<br />
-<a asp-controller="StateManagement" asp-action="Kuki">Statemanagement Cookie</a>
 
+
+</ul>
 <hr />
 <h1>Ajax</h1>
-<a asp-controller="Ajax" asp-action="Index">Detay</a>
+<ul class="list-group">
+	<li class="list-group-item">
+		<a asp-controller="Ajax" asp-action="Index">XmlHttpRequest ile Ajax Request</a>
+	</li>
+	<li class="list-group-item">
+		<a asp-controller="Ajax" asp-action="JqueryIndex">Jquery ile Ajax Request</a>
+	</li>
+	<li class="list-group-item">
+		<a asp-controller="Ajax" asp-action="MyAjaxHelper">Tag Helper ile Ajax Request</a>
+	</li>
+</ul>
 
+<hr />
+<h1>Area Yapısı</h1>
+Projeye sağ tık yapıp add scafold-item seçeneği ile mvc area seçerek area oluşturabiliriz..
+
+
+<ul class="list-group">
+	<li class="list-group-item">
+		<a asp-action="Index" asp-controller="Home"> Anasayfa</a>
+	</li>
+
+	<li class="list-group-item">
+		<a asp-area="yonetim" asp-action="Index" asp-controller="Home">Yönetim Anasayfa</a>
+	</li>
+</ul>
+
+
+
+
+<hr />
+<h1>Örnek</h1>
+<ul class="list-group">
+	<li class="list-group-item">
+		<a asp-controller="Urun" asp-action="Index">Örnek</a>
+	</li>
+</ul>
 
 
 

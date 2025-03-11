@@ -1,0 +1,70 @@
+﻿
+<input type="button" id="btnGetir" value="Getir" />
+
+<div id="result">
+
+	<span id="spnResult"></span>
+
+	<ul id="dersler" class="list-group">
+		@* <li class="list-group-item"></li> *@
+
+
+	</ul>
+
+</div>
+
+<!--Ajax Begin Form ile Ajax Request-->
+
+@section Scripts {
+
+	<script>
+
+		$(document).ready(function () {
+
+			$("#btnGetir").click(function () {
+
+				// $.get("url", function (resp) {
+				// });
+				// $.post("url", function (resp) {
+				// });
+
+				$.ajax({
+					type:"POST",
+					// url: "/Jquery/OgrList",
+					url:'@Url.Action("OgrList","Ajax")',
+					contentType:'application/json',
+					success:function(resp){
+
+						console.log(resp);
+						$("#spnResult").text(resp);
+						// alert("request başarılı");
+
+						$("#dersler").html("");
+
+						for (var i = 0; i < resp.length;i++){
+
+							// jquery html element oluşturma..
+							$("<li/>", {
+								"class": "list-group-item",
+								text:  resp[i].dersAdi
+							}).appendTo("#dersler");
+
+						}
+
+
+
+					},
+					error:function(r){
+						alert("bir hata var...");
+					}
+				}).done(function() {
+					alert("request bitti");
+				});
+
+
+			});
+
+		});
+	</script>
+
+}
