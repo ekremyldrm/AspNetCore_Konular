@@ -20,6 +20,7 @@
     <Folder Include="Areas\Test\Data\" />
     <Folder Include="Areas\Test\Models\" />
     <Folder Include="Areas\Test\Views\" />
+    <Folder Include="Areas\Uygulama\Data\" />
     <Folder Include="Areas\Yonetim\Data\" />
     <Folder Include="Areas\Yonetim\Models\" />
   </ItemGroup>

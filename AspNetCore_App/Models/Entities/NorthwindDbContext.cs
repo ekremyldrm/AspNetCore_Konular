@@ -10,5 +10,6 @@ namespace AspNetCore_App.Models.Entities
 		}
 
 		public DbSet<Product> Products { get; set; }
+		public DbSet<Category> Categories { get; set; }
 	}
 }

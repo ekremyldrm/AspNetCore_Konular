@@ -1,0 +1,26 @@
+﻿@model List<Product>
+
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a  asp-area="Uygulama" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+		<li class="breadcrumb-item active" aria-current="page"> @ViewBag.CategroyName  </li>
+	</ol>
+</nav>
+
+<div class="row">
+	@foreach (var item in Model)
+	{
+		@* <div class="col-lg-4">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="~/img/img.svg" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title"> @item.ProductName </h5>
+					<p class="card-text"> @item.UnitPrice ₺ - @item.UnitsInStock adet </p>
+					<a asp-action="Detail" asp-controller="Urun" asp-route-id="@item.ProductId" class="btn btn-primary">İncele</a>
+				</div>
+			</div>
+		</div> *@	
+		
+		@await Html.PartialAsync("_ProductInfo",item)
+	}
+</div>

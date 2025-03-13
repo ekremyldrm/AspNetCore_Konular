@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSession(c=> { 
-    c.IdleTimeout = TimeSpan.FromMinutes(1); // 1 dakika sessioni sakla...
+    c.IdleTimeout = TimeSpan.FromMinutes(20); // 1 dakika sessioni sakla...
 }); // sessions
 
 

@@ -1,0 +1,39 @@
+﻿@model ProductDetailViewModel
+
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a asp-area="Uygulama" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
+		<li class="breadcrumb-item"><a asp-area="Uygulama" asp-controller="Product" asp-action="Index" asp-route-id="@Model.Category.CategoryID"> @Model.Category.CategoryName </a></li>
+		<li class="breadcrumb-item active" aria-current="page"> @Model.Product.ProductName  </li>
+	</ol>
+</nav>
+
+<h1> Ürün = @Model.Product.ProductName</h1>
+<br />
+<h1> Fiyat= @Model.Product.UnitPrice ₺ </h1>
+<br />
+<h1> Adet = @Model.Product.UnitsInStock Adet 
+	
+	@if (@Model.Product.UnitsInStock < 10)
+	{
+		<span style="color:red">Stok Bitmek Üzere!!!</span>
+	}
+
+</h1>
+
+
+
+<br />
+<br />
+<h1>Son Gezdikleriniz</h1>
+<hr />
+
+<div class="row">
+
+
+	@foreach (var item in Model.SonGezilenler)
+	{
+		<partial name="_ProductInfo" model="item" />
+	}
+
+</div>

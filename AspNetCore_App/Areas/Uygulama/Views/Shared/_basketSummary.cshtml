@@ -1,0 +1,16 @@
+﻿@model List<SepetSepetYumurta>
+
+@{
+	int adet = 0;
+	if (Model != null)
+	{
+		adet = @Model.Sum(c => c.Adet);
+	}
+}
+<span>
+
+	<img src="~/img/basket.svg" />
+
+	<a asp-area="Uygulama" asp-action="Index" asp-controller="Shopping"> @adet adet </a>
+</span>
+
